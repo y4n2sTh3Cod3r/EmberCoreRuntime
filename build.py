@@ -4,12 +4,15 @@ from glob import glob
 from setuptools import setup, Extension
 from Cython.Build import cythonize
 import subprocess
+import shutil
 
 # Collect all pyx modules under src/
 def build():
+    if os.path.isdir("./build"):
+        shutil.rmtree("./build")
     pyx_files = glob(os.path.join("src", "**", "*.pyx"), recursive=True)
 
-    # Create one Extension per file
+    # Create one extension only
     exts = [
         Extension(
             "runtime",
@@ -31,7 +34,7 @@ def build():
     )
 
     genProc = subprocess.Popen(
-        "cd EmberCoreRuntime && stubgen",
+        "stubgen -m runtime -o .",
         shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
