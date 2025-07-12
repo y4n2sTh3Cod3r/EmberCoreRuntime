@@ -22,7 +22,8 @@ project "Runtime"
     {
         "src",
         "%{IncludeDir.VulkanSDK}",
-        "%{IncludeDir.LLGL}"
+        "%{IncludeDir.LLGL}",
+        "%{IncludeDir.ELGR}"
     }
 
     links
