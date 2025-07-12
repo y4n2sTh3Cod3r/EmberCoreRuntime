@@ -4,8 +4,8 @@ project "ELGR"
     cppdialect "C++17"
     staticruntime "off"
 
-    targetdir ("{%wks.location}/bin" .. outputdir .. "/%{prj.name}")
-    objdir ("{%wks.location}/bin-int" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{wks.location}/bin" .. outputdir .. "/%{prj.name}")
+    objdir ("%{wks.location}/bin-int" .. outputdir .. "/%{prj.name}")
 
     files
     {
@@ -13,10 +13,16 @@ project "ELGR"
         "src/**.cpp"
     }
 
+    defines
+    {
+        "ELGR_EXPORT"
+    }
+
     includedirs
     {
         "%{IncludeDir.VulkanSDK}",
-        "%{IncludeDir.LLGL}"
+        "%{IncludeDir.LLGL}",
+        "src"
     }
 
     links

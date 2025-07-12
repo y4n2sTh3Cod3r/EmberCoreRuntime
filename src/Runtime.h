@@ -6,3 +6,5 @@
 #define RUNTIME_API _declspec(dllimport)
 #endif
 #endif
+
+void RUNTIME_API test();
