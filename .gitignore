@@ -1,5 +1,2 @@
-build/
-*.cpp
-*.pyd
-*.so
-*.pyi
+*.vcxproj
+*.vcxproj.*
